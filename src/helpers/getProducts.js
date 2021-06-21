@@ -1,4 +1,4 @@
-export const getProducts = async () => {
+export const getProducts = async (filtro) => {
   const url = `https://fakestoreapi.com/products/`;
   const resp = await fetch(url);
   const data = await resp.json();
@@ -12,5 +12,7 @@ export const getProducts = async () => {
       titulo: e.title,
     };
   });
-  return items;
+  if (filtro) {
+    return items.filter((cat) => cat.categoria === filtro[0]);
+  }
 };

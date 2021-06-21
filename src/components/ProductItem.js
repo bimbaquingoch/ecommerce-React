@@ -7,10 +7,11 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { getProducts } from "../helpers/getProducts";
+import "../styles/productItem.css";
 
 const useStyles = makeStyles((theme) => ({
   expand: {
-    backgroundColor: "#00a2f1",
+    backgroundColor: "#0fa2c1",
     transform: "rotate(0deg)",
     marginLeft: "auto",
     transition: theme.transitions.create("transform", {
@@ -22,14 +23,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductItem = () => {
+const ProductItem = ({ filtro }) => {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    getProducts().then((items) => {
+    getProducts(filtro).then((items) => {
       setProductos(items);
     });
-  }, []);
+  }, [filtro]);
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);

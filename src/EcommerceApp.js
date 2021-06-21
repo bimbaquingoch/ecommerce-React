@@ -19,7 +19,7 @@ const Ecommerce = () => {
         </section>
         <section className="cards-products">
           {filtro.map((elmnt) => {
-            return <ProductItem key={elmnt} />;
+            return <ProductItem key={elmnt} filtro={filtro} />;
           })}
         </section>
       </main>
