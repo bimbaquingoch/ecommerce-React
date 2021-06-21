@@ -2,8 +2,7 @@
   --numeros-letras-gris: #96979c;
   --background-cards: #f0f3fa;
   --social-user: #848487;
-  --facebook: #0072ff;
-  --sombra-tarjetas: #848487;
+  --sombra-tarjetas: #38c9e5;
   --header-background: #f9f9f9;
   --github-color: #111521;
   --numeros-letras-primario: #000;
@@ -20,47 +19,56 @@
 body {
   background-color: var(--body-background);
 }
+/* Btn categorias*/
 
-.imagen-producto {
-  width: 200px;
-}
-
-.content {
-  display: grid;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.product-content {
-  border-radius: 20px;
-  display: grid;
-  grid-column-gap: 2em;
-  grid-row-gap: 2em;
-  grid-template-columns: 1fr;
+.btn-categorias {
   margin: 0 auto;
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 90%;
+}
+
+.btns-filtro {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.btns-filtro input {
+  border: none;
+  border-radius: 5px;
+  box-shadow: -2px 2px 15px var(--sombra-tarjetas);
+  height: 1.5em;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Tarjeta producto*/
+
+.cards-products {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 2em;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .card-content {
   background-color: var(--background-cards);
   box-shadow: -2px 10px 15px var(--sombra-tarjetas);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
   justify-self: center;
   margin: 0 auto;
-  width: 300px;
+  width: 80%;
 }
 
 .card-content__header {
   color: var(--numeros-letras-primario);
-}
-
-.card-content div {
-  display: flex;
-  justify-content: center;
 }
 
 .card-content__img {
@@ -72,8 +80,9 @@ body {
 }
 
 .card-content__precio {
-  margin-top: 20px;
+  margin-top: 30px;
   color: var(--numeros-letras-primario);
+  font-size: 2em;
 }
 
 .card-content__descripcion {
@@ -90,24 +99,26 @@ body {
 }
 
 @media screen and (min-width: 430px) {
-  .product-content {
+  .cards-products {
     grid-template-columns: 1fr 1fr;
+    width: 90%;
   }
 }
 
 @media screen and (min-width: 770px) {
-  .product-content {
+  .cards-products {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 3em;
-    grid-row-gap: 3em;
+    grid-row-gap: 2em;
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .product-content {
+  .cards-products {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 4em;
+    grid-column-gap: 1em;
     grid-row-gap: 4em;
+    width: 90%;
   }
 }
 @media (prefers-color-scheme: dark) {
