@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -6,8 +6,11 @@ import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { getProducts } from "../helpers/getProducts";
 import "../styles/productItem.css";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import Typography from "@material-ui/core/Typography";
+import { useFetchData } from "../hooks/useFetchData";
+import { ProductLoading } from "./ProductLoading";
 
 const useStyles = makeStyles((theme) => ({
   expand: {
@@ -23,15 +26,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductItem = ({ filtro }) => {
-  const [productos, setProductos] = useState([]);
+const ProductItem = ({ filtro, texto }) => {
+  const { data, loading } = useFetchData(filtro, texto);
 
-  useEffect(() => {
-    getProducts(filtro).then((items) => {
-      setProductos(items);
-    });
-  }, [filtro]);
-
+  // estilos del mostrar mas
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -41,31 +39,47 @@ const ProductItem = ({ filtro }) => {
 
   return (
     <>
-      {productos.map((item) => (
-        <div className="card-content" key={item.id}>
-          <CardHeader className="card-content__header" title={item.titulo} />
-          <img className="card-content__img" src={item.img} alt={item.titulo} />
-          <h2 className="card-content__precio">{`$ ${item.precio}`}</h2>
-          <CardActions>
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-              })}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-          </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <div className="card-content__descripcion">
-              <h3>Descripcion:</h3>
-              <p>{item.desc}</p>
-            </div>
-          </Collapse>
-        </div>
-      ))}
+      {loading ? (
+        <ProductLoading />
+      ) : (
+        data.map((item) => (
+          <div className="card-content" key={item.id}>
+            <CardHeader
+              className="card-content__header"
+              title={item.titulo}
+              aria-label={item.titulo}
+            />
+            <img
+              className="card-content__img"
+              src={item.img}
+              alt={item.titulo}
+            />
+            <h2 className="card-content__precio">{`$ ${item.precio}`}</h2>
+            <CardActions className="card-content__icons" disableSpacing>
+              {/* icon cart*/}
+              <IconButton className={classes.expand} aria-label="add to cart">
+                <AddShoppingCartIcon fontSize="large" />
+              </IconButton>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon fontSize="large" />
+              </IconButton>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <div className="card-content__descripcion">
+                <h3>Description:</h3>
+                <Typography paragraph>{item.desc}</Typography>
+              </div>
+            </Collapse>
+          </div>
+        ))
+      )}
     </>
   );
 };

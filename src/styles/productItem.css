@@ -39,6 +39,18 @@
   color: var(--numeros-letras-primario);
 }
 
+.card-content__icons {
+  justify-content: center;
+  justify-self: center;
+  align-content: center;
+  justify-items: center;
+  width: 70%;
+}
+
+.card-content__icons .expand {
+  border: 2px solid black;
+}
+
 .card-content__descripcion {
   color: var(--numeros-letras-primario);
   display: flex;

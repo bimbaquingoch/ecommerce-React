@@ -7,6 +7,7 @@
   --github-color: #111521;
   --numeros-letras-primario: #000;
   --body-background: #fff;
+  --border-active-focus: #000;
 }
 
 * {
@@ -18,29 +19,6 @@
 
 body {
   background-color: var(--body-background);
-}
-/* Btn categorias*/
-
-.btn-categorias {
-  margin: 0 auto;
-  width: 90%;
-}
-
-.btns-filtro {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
-}
-
-.btns-filtro input {
-  border: none;
-  border-radius: 5px;
-  box-shadow: -2px 2px 15px var(--sombra-tarjetas);
-  height: 1.5em;
-  font-weight: bold;
-  font-size: 1.3em;
 }
 
 /* Media queries */
@@ -85,5 +63,6 @@ body {
     --body-background: #2d3556;
     --social-user: #c2c2f2;
     --sombra-tarjetas: #00a2f1;
+    --border-active-focus: #fff;
   }
 }

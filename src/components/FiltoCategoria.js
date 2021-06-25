@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import "../styles/btnFiltros.css";
 
 export const FiltroCategoria = ({ setFiltro }) => {
   const [inputValue, setInputValue] = useState([""]);
@@ -35,14 +36,14 @@ export const FiltroCategoria = ({ setFiltro }) => {
         onClick={handleInputChange}
         type="submit"
         id="menClotes"
-        value="men's clothing"
+        value="Men's"
         name="menClothes"
       />
       <input
         onClick={handleInputChange}
         type="submit"
         id="menClotes"
-        value="women's clothing"
+        value="Women's"
         name="womenClothes"
       />
     </form>

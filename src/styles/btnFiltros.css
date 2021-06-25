@@ -1,0 +1,37 @@
+/* Btn categorias*/
+
+.btn-categorias {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.btns-filtro {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.btns-filtro input {
+  border: none;
+  color: var(--numeros-letras-primario);
+  background-color: var(--body-background);
+  border-radius: 5px;
+  box-shadow: -2px 2px 15px var(--sombra-tarjetas);
+  height: 1.6em;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.btns-filtro input:hover {
+  cursor: pointer;
+  background-color: var(--background-cards);
+  border: 3px solid var(--border-active-focus);
+}
+.btns-filtro input:active,
+.btns-filtro input:focus {
+  color: var(--numeros-letras-primario);
+  background-color: var(--background-cards);
+  border: 3px solid var(--border-active-focus);
+}
