@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductItem = ({ filtro, texto }) => {
-  const { data, loading } = useFetchData(filtro, texto);
+  const { data: products, loading } = useFetchData(filtro, texto);
 
   // estilos del mostrar mas
   const classes = useStyles();
@@ -42,8 +42,11 @@ const ProductItem = ({ filtro, texto }) => {
       {loading ? (
         <ProductLoading />
       ) : (
-        data.map((item) => (
-          <div className="card-content" key={item.id}>
+        products.map((item) => (
+          <div
+            className="card-content animate__animated animate__fadeInUp"
+            key={item.id}
+          >
             <CardHeader
               className="card-content__header"
               title={item.titulo}

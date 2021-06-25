@@ -1,9 +1,9 @@
-// import { translate } from "free-translate";
 import { useState, useEffect } from "react";
 import { getProducts } from "../helpers/getProducts";
 
 export const useFetchData = (filtro, texto) => {
   // definimos el estado de este hook
+  // este hace la peticion de getProducts y creamos una version de cargando...
   // el estado inicial sera un objeto con un arreglo vacio
   // este estado cargará por defecto
   const [state, setState] = useState({ data: [], loading: true });
@@ -11,7 +11,7 @@ export const useFetchData = (filtro, texto) => {
   useEffect(() => {
     getProducts(filtro).then((items) => {
       setState({ data: items, loading: false });
-      console.log(texto);
+      // console.log(texto);
     });
   }, [filtro, texto]);
 

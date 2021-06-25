@@ -21,12 +21,24 @@ body {
   background-color: var(--body-background);
 }
 
+.animate__fadeInUp {
+  animation-duration: 1050ms;
+}
+
 /* Media queries */
 
 @media screen and (min-width: 430px) {
   .cards-products {
     grid-template-columns: 1fr 1fr;
     width: 90%;
+  }
+  .MuiToolbar-regular {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .header-navbar__buttons {
+    justify-content: space-evenly;
+    width: 40%;
   }
 }
 
@@ -40,6 +52,9 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 2em;
     grid-row-gap: 1em;
+  }
+  .header-navbar__buttons {
+    width: 20%;
   }
 }
 
@@ -64,5 +79,8 @@ body {
     --social-user: #c2c2f2;
     --sombra-tarjetas: #00a2f1;
     --border-active-focus: #fff;
+  }
+  .MuiToolbar-regular {
+    box-shadow: -2px 5px 25px var(--sombra-tarjetas);
   }
 }

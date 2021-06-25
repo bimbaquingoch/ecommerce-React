@@ -1,0 +1,21 @@
+.MuiToolbar-regular {
+  background-color: var(--background-cards);
+  display: grid;
+  grid-template-columns: 1fr;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--numeros-letras-primario);
+}
+
+.MuiToolbar-regular h3 {
+  margin-left: 20px;
+}
+
+.header-navbar__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
