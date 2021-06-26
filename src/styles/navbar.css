@@ -19,3 +19,6 @@
   margin-bottom: 20px;
   width: 100%;
 }
+.header-navbar__buttons button {
+  border: 2px solid var(--numeros-letras-primario);
+}

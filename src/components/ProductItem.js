@@ -14,7 +14,6 @@ import { ProductLoading } from "./ProductLoading";
 
 const useStyles = makeStyles((theme) => ({
   expand: {
-    backgroundColor: "#0fa2c1",
     transform: "rotate(0deg)",
     marginLeft: "auto",
     transition: theme.transitions.create("transform", {
@@ -43,8 +42,8 @@ const ProductItem = ({ filtro, texto }) => {
         <ProductLoading />
       ) : (
         products.map((item) => (
-          <div
-            className="card-content animate__animated animate__fadeInUp"
+          <section
+            className="card-content animate__animated animate__flipInY"
             key={item.id}
           >
             <CardHeader
@@ -61,7 +60,7 @@ const ProductItem = ({ filtro, texto }) => {
             <CardActions className="card-content__icons" disableSpacing>
               {/* icon cart*/}
               <IconButton className={classes.expand} aria-label="add to cart">
-                <AddShoppingCartIcon fontSize="large" />
+                <AddShoppingCartIcon fontSize="large" color="primary" />
               </IconButton>
               <IconButton
                 className={clsx(classes.expand, {
@@ -71,7 +70,7 @@ const ProductItem = ({ filtro, texto }) => {
                 aria-expanded={expanded}
                 aria-label="show more"
               >
-                <ExpandMoreIcon fontSize="large" />
+                <ExpandMoreIcon fontSize="large" color="primary" />
               </IconButton>
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -80,7 +79,7 @@ const ProductItem = ({ filtro, texto }) => {
                 <Typography paragraph>{item.desc}</Typography>
               </div>
             </Collapse>
-          </div>
+          </section>
         ))
       )}
     </>

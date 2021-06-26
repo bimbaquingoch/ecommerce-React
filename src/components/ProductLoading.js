@@ -5,18 +5,18 @@ import CardActions from "@material-ui/core/CardActions";
 
 export const ProductLoading = () => {
   return (
-    <div className="card-content">
+    <div className="card-content animate__animated animate__fadeOut">
       <br />
       <SkeletonTheme color="#2d3556" highlightColor="#38c9e5">
-        <Skeleton variant="rect" width={210} height={38} />
+        <Skeleton variant="rect" width={230} height={48} />
       </SkeletonTheme>
       <br />
       <SkeletonTheme color="#2d3556" highlightColor="#38c9e5">
-        <Skeleton variant="rect" width={210} height={118} />
+        <Skeleton variant="rect" width={200} height={200} />
       </SkeletonTheme>
       <h2 className="card-content__precio">
         <SkeletonTheme color="#2d3556" highlightColor="#38c9e5">
-          <Skeleton variant="rect" width={210} height={28} />
+          <Skeleton variant="rect" width={125} height={48} />
         </SkeletonTheme>
       </h2>
       <CardActions className="card-content__icons" disableSpacing>
@@ -26,8 +26,8 @@ export const ProductLoading = () => {
             <Skeleton
               animation="wave"
               variant="circle"
-              width={40}
-              height={40}
+              width={50}
+              height={50}
             />
           </SkeletonTheme>
         </IconButton>
@@ -36,8 +36,8 @@ export const ProductLoading = () => {
             <Skeleton
               animation="wave"
               variant="circle"
-              width={40}
-              height={40}
+              width={50}
+              height={50}
             />
           </SkeletonTheme>
         </IconButton>

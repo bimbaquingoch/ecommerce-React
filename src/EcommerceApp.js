@@ -5,6 +5,7 @@ import ProductItem from "./components/ProductItem";
 import Navbar from "./components/Navbar";
 import "./styles/index.css";
 import "animate.css";
+import { PageCart } from "./components/PageCart";
 
 // este archivo es la aplicaion entera,
 // se exporta y se utiliza solo en el index.js
@@ -27,6 +28,7 @@ const Ecommerce = () => {
             return <ProductItem key={elmnt} filtro={filtro} />;
           })}
         </section>
+        <PageCart filtro={filtro} />
       </main>
     </>
   );

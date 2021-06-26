@@ -83,4 +83,10 @@ body {
   .MuiToolbar-regular {
     box-shadow: -2px 5px 25px var(--sombra-tarjetas);
   }
+
+  .MuiCardActions-root button:hover,
+  .MuiCardActions-root button:focus {
+    background-color: var(--numeros-letras-primario);
+    /* background-color: var(--sombra-tarjetas); */
+  }
 }
