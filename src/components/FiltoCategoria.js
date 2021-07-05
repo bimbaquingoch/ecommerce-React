@@ -5,8 +5,8 @@ import "../styles/btnFiltros.css";
 export const FiltroCategoria = ({ setFiltro }) => {
   const [inputValue, setInputValue] = useState([""]);
 
-  const handleInputChange = (evento) => {
-    setInputValue(evento.target.value);
+  const handleInputChange = ({ target }) => {
+    setInputValue(target.value);
   };
 
   const handleSubmit = (evento) => {
@@ -17,6 +17,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
   return (
     <form className="btns-filtro" onSubmit={handleSubmit}>
       <input
+        className="btn btn-primary btn-lg"
         onClick={handleInputChange}
         type="submit"
         id="jewelery"
@@ -25,6 +26,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
       />
 
       <input
+        className="btn btn-primary btn-lg"
         onClick={handleInputChange}
         type="submit"
         id="electronics"
@@ -33,6 +35,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
       />
 
       <input
+        className="btn btn-primary btn-lg"
         onClick={handleInputChange}
         type="submit"
         id="menClotes"
@@ -40,6 +43,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
         name="menClothes"
       />
       <input
+        className="btn btn-primary btn-lg"
         onClick={handleInputChange}
         type="submit"
         id="menClotes"

@@ -6,7 +6,7 @@ export const PageCart = ({ filtro }) => {
   return (
     <>
       <section className="title-pagecart">
-        <h1>Carrito</h1>
+        <h1>Shopping Cart</h1>
         <TotalCart />
       </section>
       <section className="cards-products">

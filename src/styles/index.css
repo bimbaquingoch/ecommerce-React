@@ -18,7 +18,11 @@
 }
 
 body {
+  top: 0 !important;
   background-color: var(--body-background);
+}
+.goog-te-banner-frame {
+  display: none;
 }
 
 .animate__fadeInUp {
@@ -81,7 +85,7 @@ body {
     --border-active-focus: #fff;
   }
   .MuiToolbar-regular {
-    box-shadow: -2px 5px 25px var(--sombra-tarjetas);
+    box-shadow: -2px 1px 25px var(--sombra-tarjetas);
   }
 
   .MuiCardActions-root button:hover,

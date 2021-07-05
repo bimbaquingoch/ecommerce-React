@@ -2,6 +2,7 @@
 
 .btn-categorias {
   margin: 0 auto;
+  margin-top: 30px;
   width: 90%;
 }
 
@@ -14,24 +15,20 @@
 }
 
 .btns-filtro input {
-  border: none;
-  color: var(--numeros-letras-primario);
-  background-color: var(--body-background);
-  border-radius: 5px;
   box-shadow: -2px 2px 15px var(--sombra-tarjetas);
-  height: 1.6em;
+  font-size: 1.2em;
   font-weight: bold;
-  font-size: 1.3em;
 }
 
 .btns-filtro input:hover {
   cursor: pointer;
-  background-color: var(--background-cards);
-  border: 3px solid var(--border-active-focus);
+  border: 2px solid var(--border-active-focus);
 }
-.btns-filtro input:active,
-.btns-filtro input:focus {
+.btns-filtro input:focus-within {
   color: var(--numeros-letras-primario);
   background-color: var(--background-cards);
-  border: 3px solid var(--border-active-focus);
+}
+
+.btns-filtro input:active {
+  border: 1px solid var(--border-active-focus);
 }

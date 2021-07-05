@@ -1,4 +1,4 @@
-export const getProducts = async (filtro, texto) => {
+export const getProducts = async (filtro) => {
   // petición http al API
   const url = "https://fakestoreapi.com/products/";
   const resp = await fetch(url);

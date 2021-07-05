@@ -19,6 +19,17 @@
   margin-bottom: 20px;
   width: 100%;
 }
-.header-navbar__buttons button {
+.header-navbar__buttons button:focus {
   border: 2px solid var(--numeros-letras-primario);
+}
+
+.total-pagar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 250px;
+}
+
+.total-pagar h2 {
+  text-align: center;
+  margin: 0;
 }

@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import "../styles/navbar.css";
-import { Badge, IconButton } from "@material-ui/core";
+import { Badge } from "@material-ui/core";
 
 export default function Navbar() {
   return (
@@ -18,11 +18,11 @@ export default function Navbar() {
             <Button variant="contained" size="medium">
               <strong>Sign in</strong>
             </Button>
-            <IconButton>
+            <button className="btn btn-outline">
               <Badge badgeContent={4} color="secondary">
                 <ShoppingCartRoundedIcon fontSize="large" color="primary" />
               </Badge>
-            </IconButton>
+            </button>
           </div>
         </Toolbar>
       </AppBar>

@@ -5,7 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 
 export const ProductLoading = () => {
   return (
-    <div className="card-content animate__animated animate__fadeOut">
+    <div className="card-content animate__animated">
       <br />
       <SkeletonTheme color="#2d3556" highlightColor="#38c9e5">
         <Skeleton variant="rect" width={230} height={48} />

@@ -19,17 +19,18 @@ const Ecommerce = () => {
         {/*<Header setTexto={setTexto} />*/}
         <Navbar />
       </header>
-      <main>
-        <section className="btn-categorias">
-          <FiltroCategoria setFiltro={setFiltro} filtro={filtro} />
-        </section>
-        <section className="cards-products">
-          {filtro.map((elmnt) => {
-            return <ProductItem key={elmnt} filtro={filtro} />;
-          })}
-        </section>
-        <PageCart filtro={filtro} />
-      </main>
+      {(
+        <main>
+          <section className="btn-categorias">
+            <FiltroCategoria setFiltro={setFiltro} filtro={filtro} />
+          </section>
+          <section className="cards-products">
+            {filtro.map((elmnt) => {
+              return <ProductItem key={elmnt} filtro={filtro} />;
+            })}
+          </section>
+        </main>
+      ) && <PageCart filtro={filtro} />}
     </>
   );
 };
