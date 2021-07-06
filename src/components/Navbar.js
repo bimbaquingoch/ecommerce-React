@@ -17,17 +17,21 @@ export default function Navbar() {
         </Link>
 
         <div className="header-navbar__buttons">
-          <Link exact={{ exact: true }} to="/login">
-            <button className="btn btn-secondary">
-              <strong>Sign in</strong>
-            </button>
+          <Link
+            className="btn btn-secondary"
+            exact={{ exact: true }}
+            to="/login"
+          >
+            <strong>Sign in</strong>
           </Link>
-          <Link exact={{ exact: true }} to="/paycart">
-            <button className="btn btn-outline">
-              <Badge badgeContent={4} color="secondary">
-                <ShoppingCartRoundedIcon fontSize="large" color="primary" />
-              </Badge>
-            </button>
+          <Link
+            className="btn btn-outline"
+            exact={{ exact: true }}
+            to="/paycart"
+          >
+            <Badge badgeContent={4} color="secondary">
+              <ShoppingCartRoundedIcon fontSize="large" color="primary" />
+            </Badge>
           </Link>
         </div>
       </Toolbar>

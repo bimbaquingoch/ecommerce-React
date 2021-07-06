@@ -106,6 +106,9 @@ body {
     box-shadow: -2px 1px 25px var(--sombra-tarjetas);
   }
 
+  .MuiSvgIcon-colorPrimary {
+    color: #2f58fc !important;
+  }
   .MuiCardActions-root button:hover,
   .MuiCardActions-root button:focus {
     background-color: var(--numeros-letras-primario);

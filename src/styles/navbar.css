@@ -11,6 +11,10 @@
   margin-left: 20px;
 }
 
+.MuiCardActions-root button:hover,
+.MuiCardActions-root button:focus {
+  background-color: #8bc3e9 !important;
+}
 .header-navbar__buttons {
   display: flex;
   align-items: center;
@@ -19,7 +23,8 @@
   margin-bottom: 20px;
   width: 100%;
 }
-.header-navbar__buttons button:focus {
+
+.header-navbar__buttons .btn:focus {
   border: 2px solid var(--numeros-letras-primario);
 }
 
