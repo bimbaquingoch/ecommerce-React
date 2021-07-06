@@ -73,6 +73,11 @@ body {
     align-self: center;
     text-align: center;
   }
+  .formulario {
+    width: 500px;
+    margin: 80px auto;
+    margin-bottom: 50px;
+  }
 }
 
 @media screen and (min-width: 1200px) {

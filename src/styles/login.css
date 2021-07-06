@@ -1,0 +1,24 @@
+.form-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.formulario h1 {
+  margin-top: 20px;
+  color: var(--numeros-letras-primario);
+}
+
+.form-control {
+  margin: 20px 0 auto;
+  width: 80%;
+}
+.content-buttons {
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}

@@ -4,7 +4,7 @@ import { TotalCart } from "./TotalCart";
 import "../styles/pagecart.css";
 
 export const PageCart = () => {
-  const [filtro, setFiltro] = useState(["Men's"]);
+  const [filtro] = useState(["Men's"]);
   return (
     <main>
       <section className="title-pagecart">

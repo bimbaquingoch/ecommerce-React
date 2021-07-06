@@ -17,9 +17,11 @@ export default function Navbar() {
         </Link>
 
         <div className="header-navbar__buttons">
-          <button className="btn btn-secondary">
-            <strong>Sign in</strong>
-          </button>
+          <Link exact={{ exact: true }} to="/login">
+            <button className="btn btn-secondary">
+              <strong>Sign in</strong>
+            </button>
+          </Link>
           <Link exact={{ exact: true }} to="/paycart">
             <button className="btn btn-outline">
               <Badge badgeContent={4} color="secondary">
