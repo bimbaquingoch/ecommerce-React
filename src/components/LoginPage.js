@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useForm } from "../hooks/useForm";
 import "../styles/login.css";
 
 export const LoginPage = () => {
+  const [formValues, handleInputChange] = useForm({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formValues;
+
+  useEffect(() => {}, [email]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formValues);
+  };
+
   return (
-    <form className="formulario" action="/login" method="POST">
+    <form className="formulario" method="POST" onSubmit={handleSubmit}>
       <div className="form-content">
         <h1 className="animate__fadeInUp">Login</h1>
         <img
@@ -13,11 +28,13 @@ export const LoginPage = () => {
         />
         <input
           type="email"
+          name="email"
           className="form-control animate__fadeInUp"
           id="email"
           placeholder="CORREO"
-          name="email"
           autoComplete="on"
+          value={email}
+          onChange={handleInputChange}
           required
         />
 
@@ -27,6 +44,8 @@ export const LoginPage = () => {
           id="password"
           placeholder="PASSWORD"
           name="password"
+          value={password}
+          onChange={handleInputChange}
           required
         />
         <div className="content-buttons">
