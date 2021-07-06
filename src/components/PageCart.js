@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { CartProducts } from "./CartProducts";
 import { TotalCart } from "./TotalCart";
+import "../styles/pagecart.css";
 
-export const PageCart = ({ filtro }) => {
+export const PageCart = () => {
+  const [filtro, setFiltro] = useState(["Men's"]);
   return (
-    <>
+    <main>
       <section className="title-pagecart">
         <h1>Shopping Cart</h1>
         <TotalCart />
@@ -14,6 +16,6 @@ export const PageCart = ({ filtro }) => {
           return <CartProducts key={elmnt} filtro={filtro} />;
         })}
       </section>
-    </>
+    </main>
   );
 };

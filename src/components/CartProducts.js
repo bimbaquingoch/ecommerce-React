@@ -5,6 +5,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
+import accounting from "accounting";
 
 export const CartProducts = ({ filtro }) => {
   const { data: products, loading } = useFetchData(filtro);
@@ -32,7 +33,9 @@ export const CartProducts = ({ filtro }) => {
               <IconButton aria-label="add to cart">
                 <DeleteIcon fontSize="large" color="secondary" />
               </IconButton>
-              <h2 className="card-content__precio">{`$${item.precio}`}</h2>
+              <h2 className="card-content__precio">
+                {accounting.formatMoney(item.precio)}
+              </h2>
             </CardActions>
           </section>
         ))

@@ -11,6 +11,9 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Typography from "@material-ui/core/Typography";
 import { useFetchData } from "../hooks/useFetchData";
 import { ProductLoading } from "./ProductLoading";
+import accounting from "accounting";
+// import reducer, { actionTypes, initialState } from "../reducer";
+// import { useStateValue } from "../ProveedorEstado";
 
 const useStyles = makeStyles((theme) => ({
   expand: {
@@ -31,9 +34,23 @@ const ProductItem = ({ filtro, texto }) => {
   // estilos del mostrar mas
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  // const [{ cart }, dispatch] = useStateValue();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const addToCart = (id, titulo, img, precio) => {
+    // dispatch({
+    //   type: actionTypes.ADD_TO_CART,
+    //   item: {
+    //     id: id,
+    //     name: titulo,
+    //     img: img,
+    //     precio: precio,
+    //   },
+    // });
+    console.log(id, titulo, img, precio);
   };
 
   return (
@@ -41,25 +58,27 @@ const ProductItem = ({ filtro, texto }) => {
       {loading ? (
         <ProductLoading />
       ) : (
-        products.map((item) => (
+        products.map(({ id, titulo, img, precio, desc }) => (
           <section
             className="card-content animate__animated animate__flipInY"
-            key={item.id}
+            key={id}
           >
             <CardHeader
               className="card-content__header"
-              title={item.titulo}
-              aria-label={item.titulo}
+              title={titulo}
+              aria-label={titulo}
             />
-            <img
-              className="card-content__img"
-              src={item.img}
-              alt={item.titulo}
-            />
-            <h2 className="card-content__precio">{`$ ${item.precio}`}</h2>
+            <img className="card-content__img" src={img} alt={titulo} />
+            <h2 className="card-content__precio">
+              {accounting.formatMoney(precio)}
+            </h2>
             <CardActions className="card-content__icons" disableSpacing>
               {/* icon cart*/}
-              <IconButton className={classes.expand} aria-label="add to cart">
+              <IconButton
+                className={classes.expand}
+                aria-label="add to cart"
+                onClick={() => addToCart(id, titulo, img, precio)}
+              >
                 <AddShoppingCartIcon fontSize="large" color="primary" />
               </IconButton>
               <IconButton
@@ -76,7 +95,7 @@ const ProductItem = ({ filtro, texto }) => {
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <div className="card-content__descripcion">
                 <h3>Description:</h3>
-                <Typography paragraph>{item.desc}</Typography>
+                <Typography paragraph>{desc}</Typography>
               </div>
             </Collapse>
           </section>

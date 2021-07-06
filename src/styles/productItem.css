@@ -86,22 +86,3 @@
 .makeStyles-expand-1 {
   margin: 0 auto !important;
 }
-
-/* estilos de pagecart */
-
-.title-pagecart {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.title-pagecart h1,
-h2 {
-  color: var(--numeros-letras-primario);
-}
-
-.title-pagecart h1 {
-  margin-top: 20px;
-}

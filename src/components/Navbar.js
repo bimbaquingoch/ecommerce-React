@@ -2,30 +2,33 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
-import "../styles/navbar.css";
 import { Badge } from "@material-ui/core";
+import { Link } from "react-router-dom";
+
+import "../styles/navbar.css";
 
 export default function Navbar() {
   return (
-    <div className="header-navbar">
-      <AppBar position="static">
-        <Toolbar>
+    <AppBar position="static">
+      <Toolbar>
+        <Link exact={{ exact: true }} className="navbar-brand" to="/">
           <Typography variant="h6">Ecommerce</Typography>
-          <h3>Hello</h3>
-          <div className="header-navbar__buttons">
-            <Button variant="contained" size="medium">
-              <strong>Sign in</strong>
-            </Button>
+        </Link>
+
+        <div className="header-navbar__buttons">
+          <button className="btn btn-secondary">
+            <strong>Sign in</strong>
+          </button>
+          <Link exact={{ exact: true }} to="/paycart">
             <button className="btn btn-outline">
               <Badge badgeContent={4} color="secondary">
                 <ShoppingCartRoundedIcon fontSize="large" color="primary" />
               </Badge>
             </button>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+          </Link>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
