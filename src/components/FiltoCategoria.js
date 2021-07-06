@@ -17,7 +17,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
   return (
     <form className="btns-filtro" onSubmit={handleSubmit}>
       <input
-        className="btn btn-primary btn-lg"
+        className="btn btn-primary btn-lg animate__fadeInUp"
         onClick={handleInputChange}
         type="submit"
         id="jewelery"
@@ -26,7 +26,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
       />
 
       <input
-        className="btn btn-primary btn-lg"
+        className="btn btn-primary btn-lg animate__fadeInUp"
         onClick={handleInputChange}
         type="submit"
         id="electronics"
@@ -35,7 +35,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
       />
 
       <input
-        className="btn btn-primary btn-lg"
+        className="btn btn-primary btn-lg animate__fadeInUp"
         onClick={handleInputChange}
         type="submit"
         id="menClotes"
@@ -43,7 +43,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
         name="menClothes"
       />
       <input
-        className="btn btn-primary btn-lg"
+        className="btn btn-primary btn-lg animate__fadeInUp"
         onClick={handleInputChange}
         type="submit"
         id="menClotes"

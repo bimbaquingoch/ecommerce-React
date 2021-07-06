@@ -8,7 +8,7 @@ export const PageCart = () => {
   return (
     <main>
       <section className="title-pagecart">
-        <h1>Shopping Cart</h1>
+        <h1 className="animate__fadeInUp">Shopping Cart</h1>
         <TotalCart />
       </section>
       <section className="cards-products">
