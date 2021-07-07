@@ -5,10 +5,12 @@ import Typography from "@material-ui/core/Typography";
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import { Badge } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useStateValue } from "../StateProvider";
 
 import "../styles/navbar.css";
 
 export default function Navbar() {
+  const [{ basket }] = useStateValue();
   return (
     <AppBar position="static">
       <Toolbar>
@@ -29,7 +31,7 @@ export default function Navbar() {
             exact={{ exact: true }}
             to="/paycart"
           >
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={basket?.length} color="secondary">
               <ShoppingCartRoundedIcon fontSize="large" color="primary" />
             </Badge>
           </Link>

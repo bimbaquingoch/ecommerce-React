@@ -4,28 +4,35 @@ import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import accounting from "accounting";
+import { useStateValue } from "../StateProvider";
+import { actionTypes } from "../reducer";
 
 export const CartProducts = ({ product }) => {
   const products = [product];
+  const [, dispatch] = useStateValue();
+
+  const removeItem = (id) => {
+    dispatch({ type: actionTypes.REMOVE_ITEM, id: id });
+  };
   return (
     <>
-      {products.map((item) => (
+      {products.map(({ id, titulo, img, precio }) => (
         <section
           className="card-content animate__animated animate__flipInY"
-          key={item.id}
+          key={id}
         >
           <CardHeader
             className="card-content__header"
-            title={item.titulo}
-            aria-label={item.titulo}
+            title={titulo}
+            aria-label={titulo}
           />
-          <img className="card-content__img" src={item.img} alt={item.titulo} />
+          <img className="card-content__img" src={img} alt={titulo} />
           <CardActions className="card-content__icons" disableSpacing>
-            <IconButton aria-label="add to cart">
+            <IconButton aria-label="add to cart" onClick={() => removeItem(id)}>
               <DeleteIcon fontSize="large" color="secondary" />
             </IconButton>
             <h2 className="card-content__precio">
-              {accounting.formatMoney(item.precio)}
+              {accounting.formatMoney(precio)}
             </h2>
           </CardActions>
         </section>
