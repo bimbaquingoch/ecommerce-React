@@ -6,10 +6,11 @@ import "animate.css";
 
 export const Home = () => {
   const [filtro, setFiltro] = useState(["Men's"]);
+
   return (
     <main>
       <section className="btn-categorias">
-        <FiltroCategoria setFiltro={setFiltro} filtro={filtro} />
+        <FiltroCategoria setFiltro={setFiltro} />
       </section>
       <section className="cards-products">
         {filtro.map((elmnt) => {

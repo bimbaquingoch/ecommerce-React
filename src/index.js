@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Ecommerce from "./EcommerceApp";
-import { ProveedorEstado } from "./ProveedorEstado";
 import reducer, { initialState } from "./reducer";
+import { StateProvider } from "./StateProvider";
 
 ReactDOM.render(
-  <ProveedorEstado initialState={initialState} reducer={reducer}>
+  <StateProvider initialState={initialState} reducer={reducer}>
     <Ecommerce />
-  </ProveedorEstado>,
+  </StateProvider>,
   document.getElementById("root")
 );

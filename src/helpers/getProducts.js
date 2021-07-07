@@ -4,7 +4,7 @@ export const getProducts = async (filtro) => {
   const resp = await fetch(url);
   // transformamos la información a formato JSON
   const data = await resp.json();
-  // extraemos los datos por medio de desestruccturación
+  // extraemos los datos del elemento (e)
   const items = data.map((e) => {
     return {
       categoria: e.category,
@@ -15,7 +15,6 @@ export const getProducts = async (filtro) => {
       titulo: e.title,
     };
   });
-  // console.log(texto[0]);
 
   // filtro para categoría hombre y mujer
   if (filtro[0] === "Men's") {

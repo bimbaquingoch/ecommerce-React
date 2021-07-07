@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -12,8 +12,8 @@ import Typography from "@material-ui/core/Typography";
 import { useFetchData } from "../hooks/useFetchData";
 import { ProductLoading } from "./ProductLoading";
 import accounting from "accounting";
-// import reducer, { actionTypes, initialState } from "../reducer";
-// import { useStateValue } from "../ProveedorEstado";
+import { actionTypes } from "../reducer";
+import { useStateValue } from "../StateProvider";
 
 const useStyles = makeStyles((theme) => ({
   expand: {
@@ -28,31 +28,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductItem = ({ filtro, texto }) => {
-  const { data: products, loading } = useFetchData(filtro, texto);
+const ProductItem = ({ filtro }) => {
+  // rederizado de los productos del API
+  const { data: products, loading } = useFetchData(filtro);
 
   // estilos del mostrar mas
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-  // const [{ cart }, dispatch] = useStateValue();
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const addToCart = (id, titulo, img, precio) => {
-    // dispatch({
-    //   type: actionTypes.ADD_TO_CART,
-    //   item: {
-    //     id: id,
-    //     name: titulo,
-    //     img: img,
-    //     precio: precio,
-    //   },
-    // });
-    console.log(id, titulo, img, precio);
+  // guardamos los elementos que se van al carrito
+  const [, dispatch] = useStateValue();
+  const addToBasket = (id, titulo, img, precio) => {
+    dispatch({
+      type: actionTypes.ADD_TO_BASKET,
+      item: {
+        id,
+        titulo,
+        img,
+        precio,
+      },
+    });
   };
 
+  // aqui se renderizan los productos del API
+  // si esta en loading, entonces va a mostrar
+  // el componente ProductLoading
+  // cuando deje de cargar mostrara los productos
   return (
     <>
       {loading ? (
@@ -75,9 +80,10 @@ const ProductItem = ({ filtro, texto }) => {
             <CardActions className="card-content__icons" disableSpacing>
               {/* icon cart*/}
               <IconButton
-                className={classes.expand}
                 aria-label="add to cart"
-                onClick={() => addToCart(id, titulo, img, precio)}
+                onClick={() => {
+                  addToBasket(id, titulo, img, precio);
+                }}
               >
                 <AddShoppingCartIcon fontSize="large" color="primary" />
               </IconButton>
