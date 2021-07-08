@@ -6,6 +6,7 @@ import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import { Badge } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 import "../styles/navbar.css";
 
@@ -24,6 +25,12 @@ export default function Navbar() {
         >
           <Typography variant="h6">Ecommerce</Typography>
         </Link>
+        <a
+          className="btn btn-success"
+          href="https://api.whatsapp.com/send/?phone=593963766640&text=Hola!%20Quiero%20contratar%20sus%20servicios.&app_absent=0"
+        >
+          <WhatsAppIcon />
+        </a>
 
         <div className="header-navbar__buttons">
           <Link
