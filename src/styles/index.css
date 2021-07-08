@@ -51,6 +51,9 @@ body {
     justify-content: flex-end !important;
     width: 100%;
   }
+  .card-vacio {
+    width: 500px !important;
+  }
 }
 
 @media screen and (min-width: 770px) {

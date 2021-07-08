@@ -1,0 +1,28 @@
+.card-vacio {
+  background-color: var(--background-cards);
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: -1px 5px 20px var(--sombra-tarjetas);
+  width: 90%;
+}
+
+.card-vacio__header,
+.card-vacio__parrafo {
+  color: var(--numeros-letras-primario);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-vacio__gif {
+  border-radius: 10px;
+  box-shadow: 0 1px 10px var(--sombra-tarjetas);
+  margin: 0 auto;
+  width: 90%;
+}
+
+.card-vacio__parrafo {
+  font-size: 2em;
+  padding-bottom: 10px;
+}

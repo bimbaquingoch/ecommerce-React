@@ -14,7 +14,14 @@ export default function Navbar() {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Link exact={{ exact: true }} className="navbar-brand" to="/">
+        {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
+        <Link
+          accessKey="a"
+          title="Alt+A=> HOME"
+          exact={{ exact: true }}
+          className="navbar-brand"
+          to="/"
+        >
           <Typography variant="h6">Ecommerce</Typography>
         </Link>
 
@@ -26,8 +33,11 @@ export default function Navbar() {
           >
             <strong>Sign in</strong>
           </Link>
+          {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
           <Link
             className="btn btn-outline"
+            accessKey="c"
+            title="Alt+C=> Go to Cart"
             exact={{ exact: true }}
             to="/paycart"
           >

@@ -12,6 +12,9 @@ export const actionTypes = {
   REMOVE_ITEM: "REMOVE_ITEM",
 };
 
+// suma total
+export const getBasketTotal = (basket) =>
+  basket?.reduce((amount, item) => item.precio + amount, 0);
 // es una funcion que va a recibir un estado y la accion
 //
 const reduer = (state, accion) => {

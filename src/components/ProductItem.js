@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import "../styles/productItem.css";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Typography from "@material-ui/core/Typography";
 import { useFetchData } from "../hooks/useFetchData";
@@ -14,26 +11,13 @@ import { ProductLoading } from "./ProductLoading";
 import accounting from "accounting";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
-
-const useStyles = makeStyles((theme) => ({
-  expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: "rotate(180deg)",
-  },
-}));
+import "../styles/productItem.css";
 
 const ProductItem = ({ filtro }) => {
   // rederizado de los productos del API
   const { data: products, loading } = useFetchData(filtro);
 
   // estilos del mostrar mas
-  const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -52,6 +36,7 @@ const ProductItem = ({ filtro }) => {
         precio,
       },
     });
+    alert("added to cart");
   };
 
   // aqui se renderizan los productos del API
@@ -65,15 +50,19 @@ const ProductItem = ({ filtro }) => {
       ) : (
         products.map(({ id, titulo, img, precio, desc }) => (
           <section
-            className="card-content animate__animated animate__flipInY"
+            className="card card-content animate__animated animate__flipInY"
             key={id}
           >
             <CardHeader
-              className="card-content__header"
+              className="card-title card-content__header"
               title={titulo}
               aria-label={titulo}
             />
-            <img className="card-content__img" src={img} alt={titulo} />
+            <img
+              className="card-img-top card-content__img"
+              src={img}
+              alt={titulo}
+            />
             <h2 className="card-content__precio">
               {accounting.formatMoney(precio)}
             </h2>
@@ -88,9 +77,7 @@ const ProductItem = ({ filtro }) => {
                 <AddShoppingCartIcon fontSize="large" color="primary" />
               </IconButton>
               <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
-                })}
+                className={"btn btn-outline-primary"}
                 onClick={handleExpandClick}
                 aria-expanded={expanded}
                 aria-label="show more"
@@ -99,7 +86,7 @@ const ProductItem = ({ filtro }) => {
               </IconButton>
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <div className="card-content__descripcion">
+              <div className="card-text card-content__descripcion">
                 <h3>Description:</h3>
                 <Typography paragraph>{desc}</Typography>
               </div>

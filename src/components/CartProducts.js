@@ -28,7 +28,13 @@ export const CartProducts = ({ product }) => {
           />
           <img className="card-content__img" src={img} alt={titulo} />
           <CardActions className="card-content__icons" disableSpacing>
-            <IconButton aria-label="add to cart" onClick={() => removeItem(id)}>
+            {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
+            <IconButton
+              accessKey="q"
+              title="Alt+Q=> Delete cart item"
+              aria-label="add to cart"
+              onClick={() => removeItem(id)}
+            >
               <DeleteIcon fontSize="large" color="secondary" />
             </IconButton>
             <h2 className="card-content__precio">
