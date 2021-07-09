@@ -12,7 +12,7 @@ import { actionTypes } from "../reducer";
 import { useHistory } from "react-router-dom";
 import "../styles/navbar.css";
 
-export default function Navbar() {
+export const Navbar = () => {
   const [{ basket, user }, dispatch] = useStateValue();
   const history = useHistory();
 
@@ -103,4 +103,4 @@ export default function Navbar() {
       </Toolbar>
     </AppBar>
   );
-}
+};

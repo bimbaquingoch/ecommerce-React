@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "./components/Navbar";
+import { Navbar } from "./components/Navbar";
 import { Home } from "./components/Home";
 import { PageCart } from "./components/PageCart";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
@@ -9,7 +9,7 @@ import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 import { FooterComponent } from "./components/Footer";
-
+import { Checkout } from "./components/payForm/Checkout";
 // este archivo es la aplicaion entera,
 // se exporta y se utiliza solo en el index.js
 const Ecommerce = () => {
@@ -34,6 +34,9 @@ const Ecommerce = () => {
           </Route>
           <Route path="/paycart">
             <PageCart />
+          </Route>
+          <Route path="/paypage">
+            <Checkout />
           </Route>
           <Route path="/login">
             <LoginPage />
