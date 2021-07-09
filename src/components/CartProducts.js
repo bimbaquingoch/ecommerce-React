@@ -31,7 +31,7 @@ export const CartProducts = ({ product }) => {
             {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
             <IconButton
               accessKey="q"
-              title="Alt+Q=> Delete cart item"
+              title="(Alt+Q)=Delete item"
               aria-label="add to cart"
               onClick={() => removeItem(id)}
             >

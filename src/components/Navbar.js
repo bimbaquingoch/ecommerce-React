@@ -38,7 +38,7 @@ export const Navbar = () => {
           {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
           <Link
             accessKey="a"
-            title="Alt+A=> HOME"
+            title="(Alt+A)=HOME"
             exact={{ exact: true }}
             className="navbar-brand"
             to="/"
@@ -48,9 +48,9 @@ export const Navbar = () => {
           {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
           <a
             accessKey="w"
-            title="Alt+W=> Ask for Help"
+            title="(Alt+W)=Ask for Help"
             className="btn btn-success"
-            href="https://api.whatsapp.com/send/?phone=593963766640&text=Hola!%20Quiero%20contratar%20sus%20servicios.&app_absent=0"
+            href="https://api.whatsapp.com/send/?phone=593963766640&text=Hola!%20Me%20Interesan%20sus%20productos.&app_absent=0"
             target="_blank"
             rel="noreferrer"
           >
@@ -67,7 +67,7 @@ export const Navbar = () => {
               exact={{ exact: true }}
               to="/login"
               accessKey="s"
-              title="Alt+S=> Sign in"
+              title="(Alt+S)=Sign Out"
               className="btn btn-secondary"
               onClick={handleOut}
             >
@@ -79,19 +79,18 @@ export const Navbar = () => {
               exact={{ exact: true }}
               to="/login"
               accessKey="s"
-              title="Alt+S=> Sign in"
+              title="(Alt+S)=Sign in"
               className="btn btn-secondary"
             >
               <strong>Sign In</strong>
             </Link>
           )}
-          {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
 
           {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
           <Link
             className="btn btn-outline"
             accessKey="c"
-            title="Alt+C=> Go to Cart"
+            title="(Alt+C)=Go to Cart"
             exact={{ exact: true }}
             to="/paycart"
           >
