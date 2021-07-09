@@ -54,6 +54,9 @@ body {
   .card-vacio {
     width: 500px !important;
   }
+  .eco-whats {
+    margin-top: 0;
+  }
 }
 
 @media screen and (min-width: 770px) {
@@ -81,6 +84,10 @@ body {
     margin: 80px auto;
     margin-bottom: 50px;
   }
+  .whats {
+    margin-left: 10px;
+    display: inline-block;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -89,6 +96,10 @@ body {
     grid-column-gap: 1em;
     grid-row-gap: 4em;
     width: 90%;
+  }
+  .footer-content {
+    bottom: 0;
+    position: fixed;
   }
 }
 

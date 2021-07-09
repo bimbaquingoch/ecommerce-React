@@ -3,6 +3,7 @@
 
 export const initialState = {
   basket: [],
+  user: null,
 };
 
 // es un objeto que vamos a escuchar una accion que sea
@@ -10,6 +11,8 @@ export const initialState = {
 export const actionTypes = {
   ADD_TO_BASKET: "ADD_TO_BASKET",
   REMOVE_ITEM: "REMOVE_ITEM",
+  SET_USER: "SET_USER",
+  EMPTY_BASKET: "EMPTY_BASKET",
 };
 
 // suma total
@@ -29,6 +32,7 @@ const reduer = (state, accion) => {
         ...state,
         basket: [...state.basket, accion.item],
       };
+
     case "REMOVE_ITEM":
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === accion.id
@@ -43,6 +47,15 @@ const reduer = (state, accion) => {
       return {
         ...state,
         basket: newBasket,
+      };
+
+    case "SET_USER":
+      return { ...state, user: accion.user };
+
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: accion.basket,
       };
     default:
       return state;

@@ -1,0 +1,30 @@
+footer {
+  width: 100%;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-content {
+  height: 5em;
+  color: var(--numeros-letras-primario);
+  margin-top: 50px;
+  background-color: var(--header-background);
+}
+
+.content-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.content-icons > * {
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.text-copy {
+  color: var(--numeros-letras-primario);
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: none;
+}

@@ -10,4 +10,11 @@ const firebaseConfig = {
   measurementId: "G-TSV5FX38NQ",
 };
 
+// inicializar el app de firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+// objeto de autenticacion
+const auth = firebase.auth();
+
+// lo exportamos para usarlo en el login
+export { auth, firebaseApp };

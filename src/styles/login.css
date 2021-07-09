@@ -9,21 +9,28 @@
   margin: 0 auto;
   margin-bottom: 20px;
   margin-top: 30px;
-  width: 90%;
+  width: 100%;
 }
 
-.formulario h1 {
+.form-title {
   margin-top: 20px;
   color: var(--numeros-letras-primario);
 }
 
 .form-control {
   margin: 20px 0 auto;
-  width: 80%;
+  width: 90%;
 }
 .content-buttons {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 50px;
+}
+
+.text-copy {
+  color: var(--numeros-letras-primario);
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: none;
 }

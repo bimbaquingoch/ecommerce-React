@@ -28,6 +28,17 @@
   border: 2px solid var(--numeros-letras-primario);
 }
 
+.eco-whats {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.whats {
+  display: none;
+}
+
 .total-pagar {
   display: grid;
   grid-template-columns: 1fr 1fr;

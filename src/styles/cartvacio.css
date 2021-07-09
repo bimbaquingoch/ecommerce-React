@@ -7,8 +7,7 @@
   width: 90%;
 }
 
-.card-vacio__header,
-.card-vacio__parrafo {
+.card-vacio__header {
   color: var(--numeros-letras-primario);
   margin-top: 20px;
   margin-bottom: 20px;
@@ -23,6 +22,14 @@
 }
 
 .card-vacio__parrafo {
+  display: flex;
   font-size: 2em;
-  padding-bottom: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 60%;
+}
+
+.button-link {
+  padding-bottom: 20px;
 }
