@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { auth } from "../firebase";
+import swal from "sweetalert";
 import "../styles/login.css";
 
 function Copyright() {
@@ -54,18 +55,24 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+
   const signup = (e) => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        console.log(auth);
         if (auth) {
           history.push("/");
-          alert("Sign up successfully");
+          swal({
+            title: "Sign Up",
+            text: "Sign up successfully",
+            icon: "success",
+            button: "OK",
+            timer: "2000",
+          });
         }
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => swal({ title: err.message, icon: "error" }));
   };
 
   return (

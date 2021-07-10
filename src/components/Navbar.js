@@ -10,6 +10,7 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import { auth } from "../firebase";
 import { actionTypes } from "../reducer";
 import { useHistory } from "react-router-dom";
+import swal from "sweetalert";
 import "../styles/navbar.css";
 
 export const Navbar = () => {
@@ -29,7 +30,13 @@ export const Navbar = () => {
       });
       history.push("/");
     }
-    alert("Good bye");
+    swal({
+      title: "Sign Out",
+      text: "Good bye",
+      icon: "success",
+      button: "OK",
+      timer: "2000",
+    });
   };
   return (
     <AppBar position="static">

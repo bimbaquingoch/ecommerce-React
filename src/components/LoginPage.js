@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useHistory, Link as RouterLink } from "react-router-dom";
 import { auth } from "../firebase";
+import swal from "sweetalert";
 import "../styles/login.css";
 
 function Copyright() {
@@ -57,8 +58,24 @@ export const LoginPage = () => {
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => history.push("/"))
-      .catch((err) => alert(err.message));
+      .then(() => {
+        history.push("/");
+        swal({
+          title: `Welcome! ${email}`,
+          text: "Sign In successfully",
+          icon: "success",
+          button: "OK",
+          timer: "3000",
+        });
+      })
+      .catch((err) =>
+        swal({
+          title: "Sign In",
+          text: err.message,
+          icon: "warning",
+          button: "OK",
+        })
+      );
   };
 
   return (

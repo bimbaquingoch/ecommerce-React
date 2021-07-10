@@ -6,13 +6,29 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import accounting from "accounting";
 import { useStateValue } from "../StateProvider";
 import { actionTypes } from "../reducer";
+import swal from "sweetalert";
 
 export const CartProducts = ({ product }) => {
   const products = [product];
   const [, dispatch] = useStateValue();
 
   const removeItem = (id) => {
-    dispatch({ type: actionTypes.REMOVE_ITEM, id: id });
+    swal({
+      title: "Delete",
+      text: "Do you want delete this product?",
+      icon: "warning",
+      buttons: ["NO", "YES"],
+    }).then((resp) => {
+      if (resp) {
+        dispatch({ type: actionTypes.REMOVE_ITEM, id: id });
+        swal({
+          title: "Deleted",
+          text: "Product deleted successfully",
+          icon: "success",
+          timer: "2000",
+        });
+      }
+    });
   };
   return (
     <>

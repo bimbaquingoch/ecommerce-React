@@ -11,6 +11,7 @@ import { ProductLoading } from "./ProductLoading";
 import accounting from "accounting";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
+import swal from "sweetalert";
 import "../styles/productItem.css";
 
 const ProductItem = ({ filtro }) => {
@@ -27,16 +28,30 @@ const ProductItem = ({ filtro }) => {
   // guardamos los elementos que se van al carrito
   const [, dispatch] = useStateValue();
   const addToBasket = (id, titulo, img, precio) => {
-    dispatch({
-      type: actionTypes.ADD_TO_BASKET,
-      item: {
-        id,
-        titulo,
-        img,
-        precio,
-      },
+    swal({
+      title: "Add to cart",
+      text: "Are you sure add to cart?",
+      icon: "info",
+      buttons: ["NO", "YES"],
+    }).then((resp) => {
+      if (resp) {
+        dispatch({
+          type: actionTypes.ADD_TO_BASKET,
+          item: {
+            id,
+            titulo,
+            img,
+            precio,
+          },
+        });
+        swal({
+          title: "Added",
+          text: "Product added successfully",
+          icon: "success",
+          timer: "2000",
+        });
+      }
     });
-    alert("added to cart");
   };
 
   // aqui se renderizan los productos del API

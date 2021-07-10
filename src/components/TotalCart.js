@@ -3,13 +3,20 @@ import accounting from "accounting";
 import { getBasketTotal } from "../reducer";
 import { useStateValue } from "../StateProvider";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 import "../styles/navbar.css";
 
 export const TotalCart = () => {
   const [{ basket, user }] = useStateValue();
 
   const handleClick = () => {
-    alert("Sign In to pay");
+    swal({
+      title: "Sign In",
+      text: "Plese Sign In to pay",
+      icon: "warning",
+      button: "OK",
+      timer: "3000",
+    });
   };
 
   return (
