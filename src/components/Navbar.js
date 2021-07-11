@@ -28,7 +28,7 @@ export const Navbar = () => {
         type: actionTypes.SET_USER,
         user: null,
       });
-      history.push("/");
+      history.push("/ecommerce-React/");
     }
     swal({
       title: "Sign Out",
@@ -48,7 +48,7 @@ export const Navbar = () => {
             title="(Alt+A)=HOME"
             exact={{ exact: true }}
             className="navbar-brand"
-            to="/"
+            to="/ecommerce-React/"
           >
             <Typography variant="h6">Ecommerce</Typography>
           </Link>
@@ -72,7 +72,7 @@ export const Navbar = () => {
             /*eslint-disable-next-line jsx-a11y/no-access-key*/
             <Link
               exact={{ exact: true }}
-              to="/login"
+              to="/ecommerce-React/login"
               accessKey="s"
               title="(Alt+S)=Sign Out"
               className="btn btn-secondary"
@@ -84,7 +84,7 @@ export const Navbar = () => {
             /*eslint-disable-next-line jsx-a11y/no-access-key*/
             <Link
               exact={{ exact: true }}
-              to="/login"
+              to="/ecommerce-React/login"
               accessKey="s"
               title="(Alt+S)=Sign in"
               className="btn btn-secondary"
@@ -99,7 +99,7 @@ export const Navbar = () => {
             accessKey="c"
             title="(Alt+C)=Go to Cart"
             exact={{ exact: true }}
-            to="/paycart"
+            to="/ecommerce-React/paycart"
           >
             <Badge badgeContent={basket?.length} color="secondary">
               <ShoppingCartRoundedIcon fontSize="large" color="primary" />

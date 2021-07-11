@@ -29,19 +29,19 @@ const Ecommerce = () => {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/register">
+          <Route path="/ecommerce-React/register">
             <SignUp />
           </Route>
-          <Route path="/paycart">
+          <Route path="/ecommerce-React/paycart">
             <PageCart />
           </Route>
-          <Route path="/paypage">
+          <Route path="/ecommerce-React/paypage">
             <Checkout />
           </Route>
-          <Route path="/login">
+          <Route path="/ecommerce-React/login">
             <LoginPage />
           </Route>
-          <Route path="/">
+          <Route path="/ecommerce-React/">
             <Home />
           </Route>
         </Switch>

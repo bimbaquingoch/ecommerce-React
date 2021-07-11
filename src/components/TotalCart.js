@@ -27,16 +27,19 @@ export const TotalCart = () => {
           {accounting.formatMoney(getBasketTotal(basket))}
         </h2>
         {user ? (
-          <Link className="btn btn-danger animate__fadeInUp" to="/paypage">
-            <strong>Pagar</strong>
+          <Link
+            className="btn btn-danger animate__fadeInUp"
+            to="/ecommerce-React/paypage"
+          >
+            <strong>Checkout</strong>
           </Link>
         ) : (
           <Link
             className="btn btn-danger animate__fadeInUp"
-            to="/login"
+            to="/ecommerce-React/login"
             onClick={handleClick}
           >
-            <strong>Pagar</strong>
+            <strong>Checkout</strong>
           </Link>
         )}
       </div>

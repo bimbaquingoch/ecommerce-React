@@ -59,7 +59,7 @@ export const LoginPage = () => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        history.push("/");
+        history.push("/ecommerce-React/");
         swal({
           title: `Welcome! ${email}`,
           text: "Sign In successfully",
