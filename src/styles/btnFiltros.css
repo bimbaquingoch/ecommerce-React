@@ -14,21 +14,21 @@
   grid-row-gap: 1em;
 }
 
-.btns-filtro input {
+.btns-filtro button {
   box-shadow: -2px 2px 15px var(--sombra-tarjetas);
   font-size: 1.2em;
   font-weight: bold;
 }
 
-.btns-filtro input:hover {
+.btns-filtro button:hover {
   cursor: pointer;
   border: 2px solid var(--border-active-focus);
 }
-.btns-filtro input:focus-within {
+.btns-filtro button:focus-within {
   color: var(--numeros-letras-primario);
   background-color: var(--background-cards);
 }
 
-.btns-filtro input:active {
+.btns-filtro button:active {
   border: 1px solid var(--border-active-focus);
 }

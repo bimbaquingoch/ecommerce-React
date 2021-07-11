@@ -5,7 +5,7 @@ import "../styles/index.css";
 import "animate.css";
 
 export const Home = () => {
-  const [filtro, setFiltro] = useState(["Men's"]);
+  const [filtro, setFiltro] = useState(["men's clothing"]);
 
   return (
     <main>

@@ -16,15 +16,5 @@ export const getProducts = async (filtro) => {
     };
   });
 
-  // filtro para categoría hombre y mujer
-  if (filtro[0] === "Men's") {
-    filtro = ["men's clothing"];
-    return items.filter((cat) => cat.categoria === filtro[0]);
-  } else if (filtro[0] === "Women's") {
-    filtro = ["women's clothing"];
-    return items.filter((cat) => cat.categoria === filtro[0]);
-  } else {
-    // si es diferente devulve esto
-    return items.filter((cat) => cat.categoria === filtro[0]);
-  }
+  return items.filter((cat) => cat.categoria === filtro[0]);
 };
