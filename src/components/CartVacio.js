@@ -11,7 +11,7 @@ export const CartVacio = () => {
         src="https://media.giphy.com/media/m6aIggqT7oB4A/giphy.gif"
         alt="gif cart empty"
       />
-      <RouterLink className="button-link" to="/">
+      <RouterLink className="button-link" to="/ecommerce-React/">
         <p className="btn btn-outline-primary card-text card-vacio__parrafo">
           Shop NOW!
         </p>

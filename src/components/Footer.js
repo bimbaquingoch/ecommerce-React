@@ -7,7 +7,7 @@ import "../styles/footer.css";
 
 export const FooterComponent = () => {
   return (
-    <footer className="footer footer-content py-3 ">
+    <footer className="footer footer-content  animate__fadeInUp">
       <div className="content-icons">
         <a
           href="https://www.linkedin.com/in/bryan-imbaquingo-almagro-636a90168/"
@@ -38,7 +38,7 @@ export const FooterComponent = () => {
           <TwitterIcon fontSize="large" />
         </a>
       </div>
-      <div className="text-center p-3">
+      <div className="text-copy text-center">
         © 2021 Copyright:
         <a
           className="text-copy"

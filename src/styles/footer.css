@@ -1,15 +1,17 @@
 footer {
-  width: 100%;
-  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
+  font-size: 1.2rem;
+  padding: 0;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .footer-content {
-  height: 5em;
+  /* background-color: var(--header-background); */
   color: var(--numeros-letras-primario);
-  margin-top: 50px;
-  background-color: var(--header-background);
+  height: 4em;
+  padding-top: 5px;
 }
 
 .content-icons {
@@ -26,5 +28,6 @@ footer {
   color: var(--numeros-letras-primario);
   cursor: pointer;
   margin-left: 10px;
+  padding-top: 5px;
   text-decoration: none;
 }

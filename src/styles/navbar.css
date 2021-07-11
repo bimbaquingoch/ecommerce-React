@@ -1,5 +1,5 @@
 .MuiToolbar-regular {
-  background-color: var(--background-cards);
+  background-color: var(--body-background);
   display: grid;
   grid-template-columns: 1fr;
   flex-direction: column;
