@@ -66,7 +66,7 @@ export const Navbar = () => {
           </a>
         </div>
 
-        <h3>{user ? "Bienvenido" : " "}</h3>
+        <h3>{user ? "Welcome" : ""}</h3>
         <div className="header-navbar__buttons">
           {user ? (
             /*eslint-disable-next-line jsx-a11y/no-access-key*/
