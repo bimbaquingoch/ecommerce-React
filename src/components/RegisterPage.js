@@ -58,21 +58,29 @@ export default function SignUp() {
 
   const signup = (e) => {
     e.preventDefault();
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        if (auth) {
-          history.push("/");
-          swal({
-            title: "Sign Up",
-            text: "Sign up successfully",
-            icon: "success",
-            button: "OK",
-            timer: "2000",
-          });
-        }
-      })
-      .catch((err) => swal({ title: err.message, icon: "error" }));
+    if (nombre.trim().length > 2 && apellido.trim().length > 2) {
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((auth) => {
+          if (auth) {
+            history.push("/ecommerce-React/");
+            swal({
+              title: "Sign up successfully",
+              icon: "success",
+              button: "OK",
+              timer: "2000",
+            });
+          }
+        })
+        .catch((err) => swal({ title: err.message, icon: "error" }));
+    } else {
+      swal({
+        title: "First Name or Last Name are incorrect",
+        text: "Must be longer than 3 characters",
+        icon: "warning",
+        button: "OK",
+      });
+    }
   };
 
   return (
