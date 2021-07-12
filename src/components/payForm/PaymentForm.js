@@ -1,61 +1,124 @@
-import React from "react";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+import Review from "./Review";
+import { Divider } from "@material-ui/core";
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { Typography, Button } from "@material-ui/core/";
+import { actionTypes, getBasketTotal } from "../../reducer";
+import { useStateValue } from "../../StateProvider";
+import accounting from "accounting";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-export default function PaymentForm() {
+const stripePromise = loadStripe(
+  "pk_test_51JC8T2LZD2LLfhkI8T8VfBFjVNnNKXVagA6bY1Xoce5biOTWpXTJpW3WpB4ImmSwsXn5DSyUMYkUyyilD6xFKh2T00Lx9CX22A"
+);
+
+const CARD_ELEMENT_OPTIONS = {
+  iconStyle: "solid",
+  hidePostalCode: true,
+  style: {
+    base: {
+      iconColor: "rgb(240,57,122)",
+      color: "#333",
+      fontSize: "1.1em",
+      "::placeholder": {
+        color: "#ccc",
+      },
+    },
+    invalid: {
+      color: "#e5424d",
+      ":focus": {
+        color: "#303238",
+      },
+    },
+  },
+};
+
+const CheckoutForm = ({ nextStep }) => {
+  const [{ basket }, dispatch] = useStateValue();
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
+    // setLoading(true);
+    if (!error) {
+      const { id } = paymentMethod;
+      try {
+        const { data } = await axios.post(
+          "http://localhost:3001/api/checkout",
+          {
+            id,
+            amount: getBasketTotal(basket) * 100,
+          }
+        );
+        dispatch({
+          type: actionTypes.SET_PAYMENT_MESSAGE,
+          paymentMessage: data.message,
+        });
+        if (data.message === "Successfull Payment") {
+          dispatch({
+            type: actionTypes.EMPTY_BASKET,
+            basket: [],
+          });
+        }
+        elements?.getElement(CardElement).clear();
+        nextStep();
+      } catch (err) {
+        console.log(err);
+        nextStep();
+      }
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <CardElement options={CARD_ELEMENT_OPTIONS} />
+      <div
+        style={{
+          display: "flex",
+          marginTop: "20px",
+          justifyContent: "space-between",
+        }}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/ecommerce-React/paypage"
+        >
+          Back
+        </Button>
+        <Button type="submit" variant="outlined" color="primary">
+          Pay {accounting.formatMoney(getBasketTotal(basket))}
+        </Button>
+      </div>
+    </form>
+  );
+};
+
+const PaymentForm = ({ backStep, nextStep }) => {
   return (
     <>
-      <Typography variant="h6" gutterBottom>
+      <Review />
+      <Divider />
+      <Typography variant="h5" gutterBottom style={{ margin: "20px 0" }}>
         Payment method
       </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <TextField
-            required
-            id="cardName"
-            label="Name on card"
-            fullWidth
-            autoComplete="cc-name"
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            required
-            id="cardNumber"
-            label="Card number"
-            fullWidth
-            autoComplete="cc-number"
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            required
-            id="expDate"
-            label="Expiry date"
-            fullWidth
-            autoComplete="cc-exp"
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            required
-            id="cvv"
-            label="CVV"
-            helperText="Last three digits on signature strip"
-            fullWidth
-            autoComplete="cc-csc"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-            label="Remember credit card details for next time"
-          />
-        </Grid>
-      </Grid>
+      <Elements stripe={stripePromise}>
+        <CheckoutForm backStep={backStep} nextStep={nextStep} />
+      </Elements>
     </>
   );
-}
+};
+
+export default PaymentForm;

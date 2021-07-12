@@ -4,6 +4,8 @@
 export const initialState = {
   basket: [],
   user: null,
+  shippingData: {},
+  paymentMessage: "",
 };
 
 // es un objeto que vamos a escuchar una accion que sea
@@ -13,6 +15,8 @@ export const actionTypes = {
   REMOVE_ITEM: "REMOVE_ITEM",
   SET_USER: "SET_USER",
   EMPTY_BASKET: "EMPTY_BASKET",
+  SET_SHIPPING_DATA: "SET_SHIPPING_DATA",
+  SET_PAYMENT_MESSAGE: "SET_PAYMENT_MESSAGE",
 };
 
 // suma total
@@ -56,6 +60,16 @@ const reduer = (state, accion) => {
       return {
         ...state,
         basket: accion.basket,
+      };
+    case "SET_SHIPPING_DATA":
+      return {
+        ...state,
+        shippingData: accion.shippingData,
+      };
+    case "SET_PAYMENT_MESSAGE":
+      return {
+        ...state,
+        paymentMessage: accion.paymentMessage,
       };
     default:
       return state;
