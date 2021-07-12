@@ -46,6 +46,7 @@ export const CartProducts = ({ product }) => {
           <CardActions className="card-content__icons" disableSpacing>
             {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
             <IconButton
+              className="delbtn"
               accessKey="q"
               title="(Alt+Q)=Delete item"
               aria-label="add to cart"

@@ -21,10 +21,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.10.1",
+    "react-joyride": "^2.3.0",
     "react-loading-skeleton": "^2.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "reactour": "^1.18.5",
     "stripe": "^8.161.0",
     "sweetalert": "^2.1.2",
     "web-vitals": "^1.0.1"
