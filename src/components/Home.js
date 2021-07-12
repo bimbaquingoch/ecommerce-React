@@ -13,9 +13,9 @@ export const Home = () => {
         <FiltroCategoria setFiltro={setFiltro} />
       </section>
       <section className="cards-products">
-        {filtro.map((elmnt) => {
-          return <ProductItem key={elmnt} filtro={filtro} />;
-        })}
+        {filtro.map((elmnt) => (
+          <ProductItem key={elmnt} filtro={filtro} />
+        ))}
       </section>
     </main>
   );

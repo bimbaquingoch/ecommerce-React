@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CardHeader from "@material-ui/core/CardHeader";
+import clsx from "clsx";
+import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
@@ -12,17 +14,40 @@ import accounting from "accounting";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 import swal from "sweetalert";
+import { makeStyles } from "@material-ui/core/styles";
+
 import "../styles/productItem.css";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 0,
+    paddingTop: "56.25%", // 16:9
+  },
+  expand: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: "rotate(180deg)",
+  },
+}));
+
 const ProductItem = ({ filtro }) => {
+  const classes = useStyles();
   // rederizado de los productos del API
   const { data: products, loading } = useFetchData(filtro);
 
   // estilos del mostrar mas
-  const [expanded, setExpanded] = useState(false);
+  const [expandedId, setExpandedId] = useState(-1);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleExpandClick = (i) => {
+    setExpandedId(expandedId === i ? -1 : i);
   };
 
   // guardamos los elementos que se van al carrito
@@ -63,7 +88,7 @@ const ProductItem = ({ filtro }) => {
       {loading ? (
         <ProductLoading />
       ) : (
-        products.map(({ id, titulo, img, precio, desc }) => (
+        products.map(({ id, titulo, img, precio, desc }, index) => (
           <section
             className="card card-content animate__animated animate__flipInY"
             key={id}
@@ -78,12 +103,15 @@ const ProductItem = ({ filtro }) => {
               src={img}
               alt={titulo}
             />
-            <h2 className="card-content__precio">
-              {accounting.formatMoney(precio)}
-            </h2>
+            <CardContent>
+              <Typography variant="h4">
+                {accounting.formatMoney(precio)}
+              </Typography>
+            </CardContent>
             <CardActions className="card-content__icons" disableSpacing>
               {/* icon cart*/}
               <IconButton
+                className={"btn btn-outline-primary"}
                 aria-label="add to cart"
                 onClick={() => {
                   addToBasket(id, titulo, img, precio);
@@ -91,20 +119,33 @@ const ProductItem = ({ filtro }) => {
               >
                 <AddShoppingCartIcon fontSize="large" color="primary" />
               </IconButton>
+              {/* icon expand*/}
               <IconButton
-                className={"btn btn-outline-primary"}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
+                className={
+                  ("btn btn-outline-primary",
+                  clsx(classes.expand, {
+                    [classes.expandOpen]: expandedId,
+                  }))
+                }
+                onClick={() => handleExpandClick(index)}
+                aria-expanded={expandedId === index}
                 aria-label="show more"
               >
                 <ExpandMoreIcon fontSize="large" color="primary" />
               </IconButton>
             </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <div className="card-text card-content__descripcion">
-                <h3>Description:</h3>
+            <Collapse
+              style={{ position: "relative" }}
+              in={expandedId === index}
+              timeout="auto"
+              unmountOnExit
+            >
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  Description:
+                </Typography>
                 <Typography paragraph>{desc}</Typography>
-              </div>
+              </CardContent>
             </Collapse>
           </section>
         ))
