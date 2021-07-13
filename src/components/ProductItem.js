@@ -15,16 +15,12 @@ import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 import swal from "sweetalert";
 import { makeStyles } from "@material-ui/core/styles";
-
+import PropTypes from "prop-types";
 import "../styles/productItem.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
   },
   expand: {
     transform: "rotate(0deg)",
@@ -104,7 +100,7 @@ const ProductItem = ({ filtro }) => {
               alt={titulo}
             />
             <CardContent>
-              <Typography variant="h4">
+              <Typography className="card-content__precio" variant="h4">
                 {accounting.formatMoney(precio)}
               </Typography>
             </CardContent>
@@ -140,12 +136,10 @@ const ProductItem = ({ filtro }) => {
               timeout="auto"
               unmountOnExit
             >
-              <CardContent>
-                <Typography variant="h5" gutterBottom>
-                  Description:
-                </Typography>
+              <div className="card-text card-content__descripcion">
+                <h3>Description:</h3>
                 <Typography paragraph>{desc}</Typography>
-              </CardContent>
+              </div>
             </Collapse>
           </section>
         ))
@@ -155,3 +149,5 @@ const ProductItem = ({ filtro }) => {
 };
 
 export default ProductItem;
+
+ProductItem.propTypes = { filtro: PropTypes.string.isRequired };

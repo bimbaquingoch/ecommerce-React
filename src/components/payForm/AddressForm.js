@@ -1,10 +1,10 @@
-import React from "react";
 import { Typography, Grid, Button } from "@material-ui/core/";
 import { useForm, FormProvider } from "react-hook-form";
 import { Link } from "react-router-dom";
 import AddressInput from "./AddressInput";
 import { useStateValue } from "../../StateProvider";
 import { actionTypes } from "../../reducer";
+import PropTypes from "prop-types";
 
 const AddressForm = ({ nextStep }) => {
   const methods = useForm();
@@ -79,3 +79,4 @@ const AddressForm = ({ nextStep }) => {
 };
 
 export default AddressForm;
+AddressForm.propTypes = { nextStep: PropTypes.func.isRequired };

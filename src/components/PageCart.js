@@ -1,4 +1,3 @@
-import React from "react";
 import { CartProducts } from "./CartProducts";
 import { TotalCart } from "./TotalCart";
 import { useStateValue } from "../StateProvider";

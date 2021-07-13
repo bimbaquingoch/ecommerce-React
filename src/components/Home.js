@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiltroCategoria } from "./FiltoCategoria";
 import ProductItem from "./ProductItem";
 import "../styles/index.css";

@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import Ecommerce from "./EcommerceApp";
 import reducer, { initialState } from "./reducer";

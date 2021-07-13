@@ -1,4 +1,3 @@
-import React from "react";
 import accounting from "accounting";
 import { getBasketTotal } from "../reducer";
 import { useStateValue } from "../StateProvider";
