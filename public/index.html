@@ -37,6 +37,20 @@
         a.appendChild(r);
       })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-P6WPX844TX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-P6WPX844TX");
+    </script>
     <title>E-commerce</title>
   </head>
   <body>
@@ -61,11 +75,11 @@
     </script>
 
     <div id="root"></div>
-    <!-- The core Firebase JS SDK is always required and must be listed first
+    <!-- The core Firebase JS SDK is always required and must be listed first-->
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries 
+      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
 
     <script>
@@ -83,7 +97,7 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-    </script>-->
+    </script>
     <script
       type="text/javascript"
       src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
