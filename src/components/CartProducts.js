@@ -48,7 +48,7 @@ export const CartProducts = ({ product }) => {
               className="delbtn"
               accessKey="q"
               title="(Alt+Q)=Delete item"
-              aria-label="add to cart"
+              aria-label="remove item"
               onClick={() => removeItem(id)}
             >
               <DeleteIcon fontSize="large" color="secondary" />

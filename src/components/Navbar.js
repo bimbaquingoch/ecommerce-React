@@ -17,7 +17,7 @@ const state = {
   steps: [
     {
       target: ".traductor",
-      content: "Click here to select your language",
+      content: "Click here to choose your language",
     },
 
     {
@@ -93,9 +93,10 @@ export const Navbar = () => {
             {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
             <a
               accessKey="w"
+              aria-label="Whatsapp help"
               title="(Alt+W)=Ask for Help"
               className="btn btn-success whatsbtn"
-              href="https://api.whatsapp.com/send/?phone=593963766640&text=Hola!%20Me%20Interesan%20sus%20productos.&app_absent=0"
+              href="https://api.whatsapp.com/send/?phone=593982805964&text=Hola!%20Me%20Interesan%20sus%20productos.&app_absent=0"
               target="_blank"
               rel="noreferrer"
             >
@@ -112,6 +113,7 @@ export const Navbar = () => {
                 exact={{ exact: true }}
                 to="/ecommerce-React/login"
                 accessKey="s"
+                aria-label="Sign Out"
                 title="(Alt+S)=Sign Out"
                 className="btn btn-secondary"
                 onClick={handleOut}
@@ -124,6 +126,7 @@ export const Navbar = () => {
                 exact={{ exact: true }}
                 to="/ecommerce-React/login"
                 accessKey="s"
+                aria-label="Sign in"
                 title="(Alt+S)=Sign in"
                 className="btn btn-secondary signInbtn"
               >
@@ -135,6 +138,7 @@ export const Navbar = () => {
             <Link
               className="btn btn-outline cartbtn"
               accessKey="c"
+              aria-label="Go to Cart"
               title="(Alt+C)=Go to Cart"
               exact={{ exact: true }}
               to="/ecommerce-React/paycart"

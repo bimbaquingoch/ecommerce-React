@@ -12,6 +12,7 @@ export const FooterComponent = () => {
           href="https://www.linkedin.com/in/bryan-imbaquingo-almagro-636a90168/"
           target="_blank"
           rel="noreferrer"
+          aria-label="LinkedIn Icon"
         >
           <LinkedInIcon fontSize="large" />
         </a>
@@ -19,6 +20,7 @@ export const FooterComponent = () => {
           href="https://github.com/bimbaquingoch"
           target="_blank"
           rel="noreferrer"
+          aria-label="GitHub Icon"
         >
           <GitHubIcon fontSize="large" />
         </a>
@@ -26,10 +28,12 @@ export const FooterComponent = () => {
           href="https://www.instagram.com/bryandresimba/"
           target="_blank"
           rel="noreferrer"
+          aria-label="Instagram Icon"
         >
           <InstagramIcon fontSize="large" />
         </a>
         <a
+          aria-label="Twitter Icon"
           href="https://twitter.com/bryandresimba"
           target="_blank"
           rel="noreferrer"
@@ -40,6 +44,7 @@ export const FooterComponent = () => {
       <div className="text-copy text-center">
         © 2021 Copyright:
         <a
+          aria-label="repository"
           className="text-copy"
           href="https://github.com/bimbaquingoch/ecommerce-React"
           target="_blank"

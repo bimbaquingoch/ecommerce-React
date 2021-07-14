@@ -42,6 +42,7 @@ export const TotalCart = () => {
         {user ? (
           <Link
             className="btn btn-danger animate__fadeInUp"
+            aria-label="Checkout"
             to="/ecommerce-React/paypage"
           >
             <strong>Checkout</strong>
@@ -50,6 +51,7 @@ export const TotalCart = () => {
           <Link
             className="btn btn-danger animate__fadeInUp"
             to="/ecommerce-React/login"
+            aria-label="please Sign In first"
             onClick={handleClick}
           >
             <strong>Checkout</strong>

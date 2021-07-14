@@ -28,11 +28,13 @@ export const FiltroCategoria = ({ setFiltro }) => {
         id="jewelery"
         value={jewelery}
         name="jewelery"
+        aria-label="Jewelery"
       >
         Jewelery
       </button>
 
       <button
+        aria-label="Electronics"
         className="btn btn-primary btn-lg animate__fadeInUp"
         onClick={handleInputChange}
         type="submit"
@@ -44,6 +46,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
       </button>
 
       <button
+        aria-label="men's clothing"
         className="btn btn-primary btn-lg animate__fadeInUp"
         onClick={handleInputChange}
         type="submit"
@@ -55,6 +58,7 @@ export const FiltroCategoria = ({ setFiltro }) => {
       </button>
 
       <button
+        aria-label="women's clothing"
         className="btn btn-primary btn-lg animate__fadeInUp"
         onClick={handleInputChange}
         type="submit"

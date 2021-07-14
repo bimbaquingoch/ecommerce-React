@@ -11,7 +11,10 @@ export const CartVacio = () => {
         alt="gif cart empty"
       />
       <RouterLink className="button-link" to="/ecommerce-React/">
-        <p className="btn btn-outline-primary card-text card-vacio__parrafo">
+        <p
+          className="btn btn-outline-primary card-text card-vacio__parrafo"
+          aria-label="Go to home"
+        >
           Shop NOW!
         </p>
       </RouterLink>

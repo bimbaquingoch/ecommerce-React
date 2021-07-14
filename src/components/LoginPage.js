@@ -117,6 +117,7 @@ export const LoginPage = () => {
             variant="filled"
           />
           <Button
+            aria-label="Sign in"
             type="submit"
             fullWidth
             variant="contained"
