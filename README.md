@@ -5,7 +5,7 @@
   </a>
 </p>
 
-> Ecommerce stack MERN
+> Ecommerce React, material UI y firebase
 
 ## Install
 
