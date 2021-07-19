@@ -29,6 +29,9 @@ body {
 .animate__fadeInUp {
   animation-duration: 1050ms;
 }
+.carousel {
+  max-height: 80vh;
+}
 
 /* Media queries */
 
