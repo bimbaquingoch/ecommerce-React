@@ -23,6 +23,7 @@
     "react-hook-form": "^7.10.1",
     "react-joyride": "^2.3.0",
     "react-loading-skeleton": "^2.2.0",
+    "react-responsive-carousel": "^3.2.19",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "stripe": "^8.161.0",
