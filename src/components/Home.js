@@ -11,25 +11,32 @@ export const Home = () => {
 
   return (
     <>
-      <Carousel showThumbs={false}>
+      <Carousel
+        showThumbs={false}
+        autoPlay
+        infiniteLoop
+        centerMode
+        swipeable
+        stopOnHover
+      >
         <div className="carousel">
           <img
             src="https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750"
-            alt="laptop"
+            alt="ropa"
           />
         </div>
 
         <div className="carousel">
           <img
             src="https://images.pexels.com/photos/6069083/pexels-photo-6069083.jpeg"
-            alt="laptop"
+            alt="ropa"
           />
         </div>
 
         <div className="carousel">
           <img
-            src="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt="laptop"
+            src="https://images.pexels.com/photos/1336873/pexels-photo-1336873.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+            alt="ropa"
           />
         </div>
       </Carousel>

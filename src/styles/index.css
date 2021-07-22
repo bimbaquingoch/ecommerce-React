@@ -80,6 +80,9 @@ body {
   .header-navbar__buttons {
     width: 20%;
   }
+  .carousel {
+    max-height: 50vh;
+  }
   .title-pagecart {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr;

@@ -1,5 +1,6 @@
 import Review from "./Review";
 import { Divider } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import {
   Elements,
   CardElement,
@@ -13,6 +14,7 @@ import { useStateValue } from "../../StateProvider";
 import accounting from "accounting";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 const stripePromise = loadStripe(
   "pk_test_51JC8T2LZD2LLfhkI8T8VfBFjVNnNKXVagA6bY1Xoce5biOTWpXTJpW3WpB4ImmSwsXn5DSyUMYkUyyilD6xFKh2T00Lx9CX22A"
@@ -43,6 +45,7 @@ const CheckoutForm = ({ nextStep }) => {
   const [{ basket }, dispatch] = useStateValue();
   const stripe = useStripe();
   const elements = useElements();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +53,7 @@ const CheckoutForm = ({ nextStep }) => {
       type: "card",
       card: elements.getElement(CardElement),
     });
-    // setLoading(true);
+    setLoading(true);
     if (!error) {
       const { id } = paymentMethod;
       try {
@@ -77,6 +80,7 @@ const CheckoutForm = ({ nextStep }) => {
         console.log(err);
         nextStep();
       }
+      setLoading(false);
     }
   };
 
@@ -99,7 +103,11 @@ const CheckoutForm = ({ nextStep }) => {
           Back
         </Button>
         <Button type="submit" variant="outlined" color="primary">
-          Pay {accounting.formatMoney(getBasketTotal(basket))}
+          {loading ? (
+            <CircularProgress />
+          ) : (
+            `Pay ${accounting.formatMoney(getBasketTotal(basket))}`
+          )}
         </Button>
       </div>
     </form>

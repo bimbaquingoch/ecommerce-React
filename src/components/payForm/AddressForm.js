@@ -64,7 +64,6 @@ const AddressForm = ({ nextStep }) => {
               component={Link}
               to="/ecommerce-React/paycart"
               variant="contained"
-              color="primary"
             >
               Back
             </Button>
