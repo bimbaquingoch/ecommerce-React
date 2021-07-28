@@ -5,7 +5,6 @@ import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import { Badge } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
-import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import { auth } from "../firebase";
 import { actionTypes } from "../reducer";
 import { useHistory } from "react-router-dom";
@@ -16,17 +15,8 @@ import "../styles/navbar.css";
 const state = {
   steps: [
     {
-      target: ".traductor",
-      content: "Click here to choose your language",
-    },
-
-    {
       target: ".navbar-brand",
       content: "Press Alt+A to back to home",
-    },
-    {
-      target: ".whatsbtn",
-      content: "Ask for help press ALT+W",
     },
     {
       target: ".signInbtn",
@@ -90,19 +80,6 @@ export const Navbar = () => {
             >
               <Typography variant="h6">Ecommerce</Typography>
             </Link>
-            {/*eslint-disable-next-line jsx-a11y/no-access-key*/}
-            <a
-              accessKey="w"
-              aria-label="Whatsapp help"
-              title="(Alt+W)=Ask for Help"
-              className="btn btn-success whatsbtn"
-              href="https://api.whatsapp.com/send/?phone=593982805964&text=Hola!%20Me%20Interesan%20sus%20productos.&app_absent=0"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <WhatsAppIcon />
-              <strong className="whats">Ask for Help</strong>
-            </a>
           </div>
 
           <h3>{user ? "Welcome" : ""}</h3>
